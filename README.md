@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/074b15e3-e133-42b8-af86-fa9748b6b55f)# Employee Database Website <br> Final Grade: <span style="color:green">87.2%</span>
+# Employee Database Website <br> Final Grade: <span style="color:green">87.2%</span>
 
 <i>Developed as a practical assignment of the Web Application Development class, demonstrating the integration of frontend, backend, and external APIs for efficient employee management.</i>  
 
