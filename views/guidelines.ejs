@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee database</title>
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class="container">
+
+        <!-- Including css -->
+        <%- include('css/css', { activeTab: 'guidelines' }) %>
+
+        <center><h2>Welcome</h2></center>
+
+              <ul id="guidelines">
+                <b>❗❗Please remember to follow the company's guidelines when accessing the database</b>:
+                <br><br>
+              <li>All database changes must be authorised by a designated manager or database administrator (DBA).
+              </li>
+              <li>Ensure any emergency changes are communicated <b>immediately</b>.
+              </li>
+              <li>Keep up to date with best practices and technologies for database change management to ensure efficient and secure operations.
+              </li>
+              <li>Be cautious when exporting or sharing database data; ensure it does not contain sensitive information unless absolutely necessary and ensure it is properly encrypted.
+              </li>
+              <li>Be aware that your database activities are logged, and ensure that your actions comply with company security policies.    </li>
+              </ul>
+              
+    </div>
+</body>
+</html>

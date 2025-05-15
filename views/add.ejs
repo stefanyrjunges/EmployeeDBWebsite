@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee database</title>
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class="container">
+
+        <!-- Including css -->
+        <%- include('css/css', { activeTab: 'add' }) %>
+
+        <center>
+        <h2>Add new employee</h2>
+        <form action="/add" method="POST" id="addForm">
+            <label for="fName">First name:</label>
+            <input type="text" id="fName" name="fName" required>
+
+            <br><br>
+
+            <label for="lName">Last Name:</label>
+            <input type="text" id="lName" name="lName" required>
+
+            <br><br>
+
+            <label for="role">Role:</label>
+            <input type="text" id="role" name="role" required>
+
+            <br><br>
+
+            <label for="salary">Salary:</label>
+            <input type="number" id="salary" name="salary" required>
+
+            <br><br>
+
+            <button type="submit">Add</button>
+        </form>
+        </center>
+    </div>
+</body>
+</html>

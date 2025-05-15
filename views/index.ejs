@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee database</title>
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- Including css -->
+        <%- include('css/css', { activeTab: 'manage' }) %>
+
+        <h2>Manage employees</h2>
+        
+        <ul id="empList">
+            <!-- Displaying employees if there is any -->
+            <% if (employees.length > 0) { %>
+            <% employees.forEach(employee => { %>
+                <br>
+                <li>
+                    <b>NAME:</b> <%= employee.fName %>, <%= employee.lName %>
+                    
+                    <br>
+
+                    <b>ROLE:</b> <%= employee.role %>
+                    
+                    <br>
+
+                    <b>SALARY:</b> <%= employee.salary %> euros
+
+                    <br><br>
+
+                    <form action="/delete" method="POST" style="display: inline;">
+                    <input type="hidden" name="id" value="<%= employee.id %>">
+                    <button type="submit">Delete employee</button>
+                        
+                    </form>
+
+                    <a href="/updateInfo/<%= employee.id %>"><button>Update information</button></a>
+
+                </li>
+                <% }) %>
+        </ul>
+        <!-- If there's no employee in the database, display message -->
+        <% } else { %>
+            <p>⚠️ No employees found in the system.</p>
+        <% } %>
+        
+    </div>
+</body>
+</html>

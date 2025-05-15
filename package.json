@@ -1,0 +1,23 @@
+{
+  "name": "project",
+  "version": "1.0.0",
+  "description": "Web Application and Development Project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.7.9",
+    "body-parser": "^1.20.3",
+    "chart.js": "^4.4.7",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "modules": "^0.4.0"
+  },
+  "devDependencies": {
+    "@ljharb/tsconfig": "^0.2.2",
+    "typescript": "^5.7.2"
+  }
+}

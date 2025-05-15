@@ -1,0 +1,124 @@
+<header>
+    <div class="dbTitle">Employee database</div>
+    <ul class="navbar">
+        <li><a href="/" class="<%= activeTab === 'guidelines' ? 'active' : '' %>">Home</a></li>
+        <li><a href="/index" class="<%= activeTab === 'manage' ? 'active' : '' %>">Manage employees</a></li>
+        <li><a href="/add" class="<%= activeTab === 'add' ? 'active' : '' %>">Add new employee</a></li>
+        <li><a href="/chart" class="<%= activeTab === 'chart' ? 'active' : '' %>">Data visualisation</a></li>
+    </ul>
+</header>
+    <style>
+
+        body{
+            background-color: #d3d3d3;
+            margin: 150px;
+            font-family: Inconsolata;
+        }
+
+        /* main container */
+
+        .container {
+            background-color: whitesmoke;
+            height: 50%;
+            width: 800px;
+            margin:200px;
+            padding:10px;
+        }
+
+        /* canvas to display the chart */
+
+        canvas {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            background: white;
+            padding: 10px;
+        }
+
+        /* header */
+
+        header {
+            color: white;
+            align-items: center;
+            padding: 30px 20px;
+            margin-top:-100px;
+            margin-left:100px;
+            width: 600px;
+        }
+
+        header .dbTitle {
+            background-color: #6a89a7;
+            font-size: 30px;
+            font-weight: bold;
+            text-align: center;
+            text-transform: uppercase;
+            padding:20px;
+        }
+
+        /* navigation */
+
+        .navbar {
+            display: flex;
+            list-style: none;
+            margin: 3px;
+        }
+
+        .navbar li {
+            margin-right: 10px;
+        }
+        
+        .navbar a {
+            color: black;
+            text-decoration: none;
+            padding: 10px 5px;
+        }
+
+        .navbar a.active, .navbar a:hover {
+            background-color: #6a89a7;;
+            border-bottom: 4px solid black;
+        }
+
+        /* button */
+
+        button {
+            text-transform: uppercase;
+            background-color: aliceblue;
+            font-family: Inconsolata;
+        }
+
+        button:hover {
+            background-color: #6a89a7;
+            cursor: pointer;
+        }
+
+        /* titles, lists and paragraphs */
+
+        h2 {
+            font-size:30px;
+            color:#6a89a7;
+            text-transform: uppercase;
+            text-decoration:underline;
+            margin:20px;
+        }
+
+        #guidelines{
+            padding:30px;
+            text-align: justify;
+        }
+
+        #empName {
+            font-size:15px;
+        }
+
+        #empList {
+            list-style:decimal;
+        }
+
+        /* form for add page */
+
+        #addForm {
+            display: block;
+            margin:30px;
+        }
+
+
+    </style>
+</header>

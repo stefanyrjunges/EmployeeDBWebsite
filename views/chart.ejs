@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee database</title>
+
+    <!-- Script -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+
+        <!-- Including css.ejs -->
+        <%- include('css/css', { activeTab: 'chart' }) %>
+
+        <center><h2>Data visualisation: employee salaries overview</h2></center>
+        <canvas id="chart" width="200" height="100"></canvas>
+
+    </div>
+
+    <!-- Chart script -->
+    <script>
+    //Waiting until the DOM is loaded
+    document.addEventListener('DOMContentLoaded', () => {
+    //Sending a request to the server to get chart data
+    fetch('/refresh/chart-data')
+        .then(response => response.json())
+        .then(data => {
+            const context = document.getElementById('chart').getContext('2d');
+
+            //Creating a new chart
+            new Chart(context, {
+                type: 'bar',
+                data: {
+                    //Setting employee names as the label
+                    labels: data.employeeNames,
+                    datasets: [{
+                        label: 'Employee Salaries (€)',
+                        //Getting salaries
+                        data: data.employeeSalaries,
+                        backgroundColor: data.employeeNames.map((_, index) => {
+                            //Different colours when index is divisible by 2 and when it's not
+                            return index % 2 === 0 ? 'rgb(0 107 162)' : 'rgb(117 141 153)';
+                        })
+                    }]
+                },
+                options: {
+                    //Making the chart responsive
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            labels: {
+                                font: {
+                                    size: 14,
+                                    family: 'Inconsolata'
+                                }
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    //Getting employee ID and salary and displaying in the tooltip
+                                    const id = data.employeeIDs[context.dataIndex];
+                                    const salary = context.raw.toLocaleString();
+                                    return `ID: ${id} - €${salary}`;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                //Label for y-axis
+                                text: 'Salary (€)',
+                                font: {
+                                    size: 14,
+                                    family: 'Inconsolata'
+                                }
+                            },
+                            grid: {
+                                color: 'rgba(200, 200, 200, 0.2)'
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                //Label for x-axis
+                                text: 'Employees',
+                                font: {
+                                    size: 14,
+                                    family: 'Inconsolata'
+                                }
+                            },
+                            grid: {
+                                //Hiding the grid lines
+                                display: false
+                            }
+                        }
+                    }
+                }
+            });
+        })
+
+        .catch(error => console.error('Error loading chart:', error));
+});
+
+    </script>
+</body>
+</html>
